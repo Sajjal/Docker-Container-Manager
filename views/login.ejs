@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Docker Container Manager</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Docker Container Manager</h1>
+      <div class="notification">
+        <%if(typeof message!='undefined'){%><%=message%><%}%>
+      </div>
+      <div class="projectGrid">
+        <div class="login">
+          <strong>New User Sign up !</strong>
+          <hr />
+          <form action="/signup" method="post">
+            <div>
+              <input type="text" name="username" placeholder="  Username..." required />
+            </div>
+            <div>
+              <input type="password" name="password" placeholder="  Password..." required />
+            </div>
+            <div>
+              <input type="submit" class="btn" value="Sign up!" />
+            </div>
+          </form>
+        </div>
+        <div class="login">
+          <strong>Already Registered? Login!</strong>
+          <hr />
+          <form action="/" method="post">
+            <div>
+              <input type="text" name="username" placeholder="  Username..." required />
+            </div>
+            <div>
+              <input type="password" name="password" placeholder="  Password..." required />
+            </div>
+            <div>
+              <input type="submit" class="btn" value="Login!" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer">S & D Docker Container Manager | github: @Sajjal</div>
+    </div>
+  </body>
+</html>

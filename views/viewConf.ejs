@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Docker Container Manager</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Docker Container Manager</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="projectGrid">
+        <div class="txtbox">
+          <h3>Things to Remember:</h3>
+          <hr />
+          <ul>
+            <li>Apache Server configuration has been Automatically updated.</li>
+            <br />
+            <li>If you had previously Provided the "sudo" password, the Server is automatically reloaded.</li>
+            <br />
+            <li>
+              If you have SSL enabled, and opt-in to generate Apache .conf file with SSL, your domain should
+              automatically be redirected to https.
+            </li>
+            <br />
+            <li>
+              If your domain is not being redirected to SSL automatically, you may need to re-assign the SSL certificate
+              to your Domain (easy) OR you can copy the generated Configuration and Tweak the SSL in
+              "/etc/apache2/sites-available/your-domain"
+            </li>
+            <br />
+            <li>That's it! Enjoy the Service.</li>
+            <br />
+          </ul>
+        </div>
+        <div class="txtbox">
+          <strong> The Following Apache .conf file has been Generated to:</strong><br /><br />
+          /etc/apache2/sites-available/<%=serverName%>.conf
+          <br />
+          <hr />
+          <div class="scrolling">
+            <% newConfFile.forEach(element => {%>
+            <div><br /><%= element.value %></div>
+            <% })%>
+          </div>
+        </div>
+      </div>
+      <div class="footer">S & D Docker Container Manager | github: @Sajjal</div>
+    </div>
+  </body>
+</html>

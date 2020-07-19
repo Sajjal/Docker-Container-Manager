@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Docker Container Manager</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Docker Container Manager</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="notification">
+        Your Projects!
+      </div>
+      <div class="display" id="display">
+        <% projects.forEach(project => {%>
+        <div class="posts">
+          <h3><%= project.projectName %></h3>
+          <div>
+            <%= project.imageName %>
+          </div>
+          <div>
+            <a class="btn btn_edit_group" href="/dashboard/project/scale?id=<%= project._id %>">Manage</a>
+            <a
+              class="btn btn_edit_group"
+              href="/dashboard/project/delete?id=<%= project._id %>"
+              onclick="return confirm('Are you sure you want to delete this Project?');"
+            >
+              Delete
+            </a>
+          </div>
+        </div>
+        <% })%>
+      </div>
+      <div class="footer">S & D Docker Container Manager | github: @Sajjal</div>
+    </div>
+  </body>
+</html>

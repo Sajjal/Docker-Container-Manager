@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Docker Container Manager</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Docker Container Manager</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="notification">
+        Manage Containers!
+      </div>
+      <div class="projectGrid">
+        <div class="txtbox">
+          <h3><%=noOfContainers%> Containers Running:</h3>
+          <hr />
+          <div class="scrolling">
+            <% containers.forEach(container => {%>
+            <div>
+              <br />
+              <strong>Name:</strong> <%= container.name %> &nbsp;&nbsp;&nbsp; <strong>Port No: </strong>
+              <%=container.port%>
+            </div>
+            <% })%><br /><br />
+          </div>
+          <a class="btn btn_edit_group" href="/dashboard/project/generateConf?id=<%= image %>">
+            Generate Apache .conf
+          </a>
+          <a class="btn btn_edit_group" href="/dashboard/project/generateConfSSL?id=<%= image %>">
+            Generate .conf SSL!
+          </a>
+        </div>
+
+        <div class="txtbox">
+          <h3>Scale Container:</h3>
+          <hr />
+          <br />
+          <strong>Project: <%= data.projectName %></strong><br /><br />
+          <strong>Image: </strong> <%- data.imageName %> <br /><br />
+          <div>
+            <form action="/dashboard/project/scale" method="POST">
+              <input type="text" name="maxScale" placeholder="  Number of Containers to Scale" />
+              <input type="hidden" name="id" value="<%=data._id%>" />
+              <input type="submit" class="btn btn-read" value="Scale" />
+            </form>
+          </div>
+          <br />
+          <hr />
+          <strong
+            >Container's Health:
+            <a href="#" style="text-decoration: none; color: #2d8ec2;" onclick="location.reload();">
+              &nbsp;&nbsp;&nbsp; Refresh
+            </a>
+          </strong>
+          <hr />
+          <div class="scrolling-min">
+            <% healthStatus.forEach(container => {%>
+            <div>
+              <br />
+              <strong>Health Status:</strong> <%= container.status %> &nbsp;&nbsp;&nbsp; <strong>Port No: </strong>
+              <%=container.port%>
+            </div>
+            <% })%><br /><br />
+          </div>
+        </div>
+      </div>
+      <div class="footer">S & D Docker Container Manager | github: @Sajjal</div>
+    </div>
+  </body>
+</html>

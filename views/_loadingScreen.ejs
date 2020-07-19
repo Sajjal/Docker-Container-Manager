@@ -1,0 +1,13 @@
+<div id="loader"></div>
+
+<script>
+  let loading;
+  document.getElementById("loader").style.display = "none";
+  function showLoader() {
+    document.getElementById("loader").style.display = "block";
+    loading = setTimeout(hideLoader, 20000);
+  }
+  function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+  }
+</script>

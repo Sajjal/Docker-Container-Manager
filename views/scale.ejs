@@ -43,7 +43,7 @@
             <form action="/dashboard/project/scale" method="POST">
               <input type="text" name="maxScale" placeholder="  Number of Containers to Scale" />
               <input type="hidden" name="id" value="<%=data._id%>" />
-              <input type="submit" class="btn btn-read" value="Scale" />
+              <input type="submit" class="btn btn-read" value="Scale" onclick="showLoader()" />
             </form>
           </div>
           <br />
@@ -65,6 +65,7 @@
             <% })%><br /><br />
           </div>
         </div>
+        <%- include('_loadingScreen')%>
       </div>
       <div class="footer">S & D Docker Container Manager | github: @Sajjal</div>
     </div>

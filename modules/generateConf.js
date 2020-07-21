@@ -20,9 +20,8 @@ async function generateConf(data, serverName) {
   const info = partA + partB + partC;
 
   await createFile(`/etc/apache2/sites-available/${serverName}.conf`, info);
-  await linuxCommand(`a2ensite ${serverName}.conf`);
+  await linuxCommand(`a2ensite ${serverName}`);
   await linuxCommand(`service apache2 reload`);
-  await linuxCommand(`systemctl restart apache2`);
   return info;
 }
 
@@ -67,9 +66,8 @@ async function generateConfSSL(data, serverName) {
 
   await createFile(`/etc/apache2/sites-available/${serverName}.conf`, info);
   await createFile(`/etc/apache2/sites-available/${serverName}-le-ssl.conf`, infoSSL);
-  await linuxCommand(`a2ensite ${serverName}.conf`);
+  await linuxCommand(`a2ensite ${serverName}`);
   await linuxCommand(`service apache2 reload`);
-  await linuxCommand(`systemctl restart apache2`);
   return info;
 }
 

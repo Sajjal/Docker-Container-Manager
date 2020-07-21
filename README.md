@@ -65,13 +65,14 @@ I personally use Apache 2 Reverse Proxy Mod in the Ubuntu-based server to deploy
 ## Installation:
 
 1. Clone this Project.
-2. Open terminal/command-prompt. **cd** to project directory and type:
+2. Switch to the Root user.
+3. Open terminal/command-prompt. **cd** to project directory and type:
 
    i. `npm install`
 
    ii. `npm start`
 
-3. Type `http://localhost:3000` on your browser's address bar and hit Enter. **Enjoy.**
+4. Type `http://localhost:3000` on your browser's address bar and hit Enter. **Enjoy.**
 
 ---
 
@@ -91,7 +92,7 @@ I personally use Apache 2 Reverse Proxy Mod in the Ubuntu-based server to deploy
 
 **Add New Project:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/add.png">
+<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/new.png">
 
 ---
 
@@ -103,7 +104,7 @@ I personally use Apache 2 Reverse Proxy Mod in the Ubuntu-based server to deploy
 
 **Generate Apache .conf File:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/config.png">
+<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/conf.png">
 
 ---
 

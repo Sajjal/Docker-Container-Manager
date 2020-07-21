@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { linuxCommand } = require("../modules/linuxCommand");
 
-async function generateConf(data, serverName, sudoPass) {
+async function generateConf(data, serverName) {
   const partA = `<VirtualHost *:80>
   ServerName ${serverName}${"\n"}
   <Proxy balancer://mycluster>`;
@@ -20,13 +20,13 @@ async function generateConf(data, serverName, sudoPass) {
   const info = partA + partB + partC;
 
   await createFile(`/etc/apache2/sites-available/${serverName}.conf`, info);
-  await linuxCommand(`echo "${sudoPass}" | sudo -S a2ensite ${serverName}.conf`);
-  await linuxCommand(`echo "${sudoPass}" | sudo -S service apache2 reload`);
-  await linuxCommand(`echo "${sudoPass}" | sudo -S systemctl restart apache2`);
+  await linuxCommand(`a2ensite ${serverName}.conf`);
+  await linuxCommand(`service apache2 reload`);
+  await linuxCommand(`systemctl restart apache2`);
   return info;
 }
 
-async function generateConfSSL(data, serverName, sudoPass) {
+async function generateConfSSL(data, serverName) {
   const partA = `<VirtualHost *:80>
   ServerName ${serverName}${"\n"}
   <Proxy balancer://mycluster>`;
@@ -67,9 +67,9 @@ async function generateConfSSL(data, serverName, sudoPass) {
 
   await createFile(`/etc/apache2/sites-available/${serverName}.conf`, info);
   await createFile(`/etc/apache2/sites-available/${serverName}-le-ssl.conf`, infoSSL);
-  await linuxCommand(`echo "${sudoPass}" | sudo -S a2ensite ${serverName}.conf`);
-  await linuxCommand(`echo "${sudoPass}" | sudo -S service apache2 reload`);
-  await linuxCommand(`echo "${sudoPass}" | sudo -S systemctl restart apache2`);
+  await linuxCommand(`a2ensite ${serverName}.conf`);
+  await linuxCommand(`service apache2 reload`);
+  await linuxCommand(`systemctl restart apache2`);
   return info;
 }
 

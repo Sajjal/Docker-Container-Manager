@@ -38,7 +38,7 @@
               Apache file: "/etc/apache2/ports.conf" and Listen to some other Port.
             </li>
             <br />
-            <li>Sudo Password is required to Reload Apache Server.</li>
+            <li>Run this application (Docker Container Manager) as a Root User.</li>
             <br />
           </ul>
         </div>
@@ -67,10 +67,7 @@
                 <input type="text" name="hostVolume" placeholder="  Host Machine Volume" />
               </div>
               <div>
-                <input type="text" name="serverName" placeholder="  Domain Name or IP Address" />
-              </div>
-              <div>
-                <input type="text" name="sudoPass" placeholder="  Sudo Password" />
+                <input type="text" name="serverName" placeholder="  Domain Name or IP Address *" required />
               </div>
               <div>
                 <input type="submit" class="btn" value="Add Project!" />

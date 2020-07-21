@@ -25,7 +25,6 @@ router.post("/projects/add", verifyToken, async (req, res) => {
     portRange: req.body.portRange.toString(),
     containerVolume: req.body.containerVolume.toString(),
     hostVolume: req.body.hostVolume.toString(),
-    sudoPass: req.body.sudoPass.toString(),
     serverName: req.body.serverName.toString(),
     postedBy: req.user.id,
   };
@@ -60,12 +59,10 @@ router.get("/project/generateConf", verifyToken, async (req, res) => {
   const containers = await searchData("containers", { containerImage: req.query.id });
   const server = await searchData("projects", { imageID: req.query.id });
   let serverName = "";
-  let sudoPass = "";
   if (server) {
     serverName = server[0].serverName;
-    sudoPass = server[0].sudoPass;
   }
-  let confFile = await generateConf(containers, serverName, sudoPass);
+  let confFile = await generateConf(containers, serverName);
   confFile = confFile.split("\n");
   let newConfFile = [];
   for (let i = 0; i < confFile.length; i++) {
@@ -82,9 +79,8 @@ router.get("/project/generateConfSSL", verifyToken, async (req, res) => {
   let sudoPass = "";
   if (server) {
     serverName = server[0].serverName;
-    sudoPass = server[0].sudoPass;
   }
-  let confFile = await generateConfSSL(containers, serverName, sudoPass);
+  let confFile = await generateConfSSL(containers, serverName);
   confFile = confFile.split("\n");
   let newConfFile = [];
   for (let i = 0; i < confFile.length; i++) {

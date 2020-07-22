@@ -92,7 +92,7 @@ I personally use Apache 2 Reverse Proxy Mod in the Ubuntu-based server to deploy
 
 **Add New Project:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/addnew.png">
+<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/addProject.png">
 
 ---
 
@@ -104,7 +104,7 @@ I personally use Apache 2 Reverse Proxy Mod in the Ubuntu-based server to deploy
 
 **Generate Apache .conf File:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/confconfig.png">
+<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/generateConf.png">
 
 ---
 

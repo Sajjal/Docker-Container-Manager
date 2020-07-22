@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Docker Container Manager</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Docker Container Manager</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="notification">
+        Edit Project!
+      </div>
+      <div class="projectGrid">
+        <div class="txtbox">
+          <h3>Things to Remember:</h3>
+          <hr />
+          <ul>
+            <li>
+              This System is Designed to work best for Ubuntu Based System. Automatic Load Balancing is not supported in
+              other Distro.
+            </li>
+            <br />
+            <li>Pull Docker Image and get the Image ID.</li>
+            <br />
+            <li>
+              To share volume among Containers, create a directory in the Host Machine and input the full path in 'Host
+              Machine Volume' field.
+            </li>
+            <br />
+            <li>
+              For auto Load Balancing, Setup Apache 2 and install necessary mods for Reverse Proxy and Load Balancing.
+            </li>
+            <br />
+            <li>
+              If you are using an IP Address instead of a Domain Name then make sure Port 80 is available. Change the
+              Apache file: "/etc/apache2/ports.conf" and Listen to some other Port.
+            </li>
+            <br />
+            <li>Run this application (Docker Container Manager) as a Root User.</li>
+            <br />
+          </ul>
+        </div>
+        <div class="txtbox">
+          <div>
+            <form action="/dashboard/projects/edit" method="post">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="  Project Name *"
+                  value="<%=project.projectName %>"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="imageID"
+                  placeholder="  Docker Image ID *"
+                  value="<%=project.imageID %>"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="imageName"
+                  placeholder="  Docker Image Name *"
+                  value="<%=project.imageName %>"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="containerPort"
+                  placeholder="  Docker Container Port to Map *"
+                  value="<%=project.containerPort %>"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="portRange"
+                  placeholder="  Host Machine Starting Port *"
+                  value="<%=project.portRange %>"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="containerVolume"
+                  value="<%=project.containerVolume %>"
+                  placeholder="  Docker Container volume to Map"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="hostVolume"
+                  value="<%=project.hostVolume %>"
+                  placeholder="  Host Machine Volume"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="serverName"
+                  placeholder="  Domain Name or IP Address *"
+                  value="<%=project.serverName %>"
+                  required
+                />
+              </div>
+              <input type="hidden" name="id" value="<%=project._id %>" />
+              <div>
+                <input type="submit" class="btn" value="Edit Project!" />
+                <input
+                  type="button"
+                  class="btn"
+                  style="border: 2px solid #bf7c3d;"
+                  onclick="location.href='/dashboard/project/delete?id=<%= project._id %>';"
+                  value="Delete Project"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer">S & D Docker Container Manager | github: @Sajjal</div>
+    </div>
+  </body>
+</html>

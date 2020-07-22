@@ -21,6 +21,12 @@ async function searchData(collectionName, data) {
   return result;
 }
 
+//Update data in Collection
+async function updateData(collectionName, id, data) {
+  const collection = db.get(collectionName);
+  await collection.update({ _id: id }, { $set: data });
+}
+
 //Remove data from Collection
 async function removeData(collectionName, id) {
   const collection = db.get(collectionName);
@@ -36,4 +42,4 @@ async function expiredToken(token) {
   });
 }
 
-module.exports = { addData, getData, searchData, removeData, expiredToken };
+module.exports = { addData, getData, searchData, updateData, removeData, expiredToken };

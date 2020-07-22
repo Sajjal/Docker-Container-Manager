@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const verifyToken = require("../config/verifyToken");
-const { addData, searchData, removeData } = require("../config/dbConfig");
+const { addData, searchData, removeData, updateData } = require("../config/dbConfig");
 const { dockerScaleContainerWithVolume, dockerScaleContainerNoVolume } = require("../modules/dockerCommands");
 const { generateConf, generateConfSSL } = require("../modules/generateConf");
 const { healthCheck } = require("../modules/healthCheck");
@@ -29,6 +29,27 @@ router.post("/projects/add", verifyToken, async (req, res) => {
     postedBy: req.user.id,
   };
   await addData("projects", data);
+  res.redirect("/");
+});
+
+router.get("/project/edit", verifyToken, async (req, res) => {
+  const project = await searchData("projects", { _id: req.query.id });
+  res.render("editProject", { project: project[0] });
+});
+
+router.post("/projects/edit", verifyToken, async (req, res) => {
+  let data = {
+    projectName: req.body.name.toString(),
+    imageID: req.body.imageID.toString(),
+    imageName: req.body.imageName.toString(),
+    containerPort: req.body.containerPort.toString(),
+    portRange: req.body.portRange.toString(),
+    containerVolume: req.body.containerVolume.toString(),
+    hostVolume: req.body.hostVolume.toString(),
+    serverName: req.body.serverName.toString(),
+    postedBy: req.user.id,
+  };
+  await updateData("projects", req.body.id, data);
   res.redirect("/");
 });
 

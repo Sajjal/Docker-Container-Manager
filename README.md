@@ -80,31 +80,31 @@ I personally use Apache 2 Reverse Proxy Mod in the Ubuntu-based server to deploy
 
 **Login Page:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/login.png">
+<img src="https://github.com/Sajjal/Docker-Container-Manager/blob/master/public/images/Screen_shots/login.png">
 
 ---
 
 **Home Page:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/home.png">
+<img src="https://github.com/Sajjal/Docker-Container-Manager/blob/master/public/images/Screen_shots/home.png">
 
 ---
 
 **Add New Project:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/addProject.png">
+<img src="https://github.com/Sajjal/Docker-Container-Manager/blob/master/public/images/Screen_shots/addProject.png">
 
 ---
 
 **Manage Container:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/manage.png">
+<img src="https://github.com/Sajjal/Docker-Container-Manager/blob/master/public/images/Screen_shots/manage.png">
 
 ---
 
 **Generate Apache .conf File:**
 
-<img src="https://github.com/Sajjal/Lightweight-Docker-Container-Manager/blob/master/public/images/Screen_shots/generateConf.png">
+<img src="https://github.com/Sajjal/Docker-Container-Manager/blob/master/public/images/Screen_shots/generateConf.png">
 
 ---
 
